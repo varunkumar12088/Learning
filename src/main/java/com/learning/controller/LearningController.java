@@ -17,16 +17,16 @@ public class LearningController {
     @Autowired
     private LearningService learningService;
 
-    @RequestMapping(method = RequestMethod.POST, value = "/")
+    @RequestMapping(method = RequestMethod.POST, value = "")
     public ResponseEntity<?> learn(@RequestBody Request request){
-        System.out.println("=========================");
+        System.out.println("==========with body===============");
        Response response = learningService.learn(request);
        return ResponseEntity.ok(response);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/")
+    @RequestMapping(method = RequestMethod.GET, value = "")
     public ResponseEntity<?> learn(){
-        System.out.println("=========================");
+        System.out.println("=========without body================");
         Response response = learningService.learn();
         return ResponseEntity.ok(response);
     }

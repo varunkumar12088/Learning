@@ -22,7 +22,7 @@ public class LearningService {
 
     public Response learn(){
         Response response = new Response();
-        response.setFullName("Hi, welcome to learning centre");
+        response.setMessage("Hi, welcome to learning centre");
         response.setInstance(getInstanceDetails());
         return response;
     }
