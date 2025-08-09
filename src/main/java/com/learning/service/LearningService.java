@@ -5,6 +5,7 @@ import com.learning.domain.Request;
 import com.learning.domain.Response;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +18,7 @@ public class LearningService {
         response.setFullName(request.getFirstName() + " " + request.getLastName());
         response.setMessage(msg);
         response.setInstance(getInstanceDetails());
-        long epoch = System.currentTimeMillis();
+        long epoch = Instant.now().toEpochMilli();
         response.setEpoch(epoch);
         return response;
     }
@@ -26,7 +27,7 @@ public class LearningService {
         Response response = new Response();
         response.setMessage("Hi, welcome to learning centre");
         response.setInstance(getInstanceDetails());
-        long epoch = System.currentTimeMillis();
+        long epoch = Instant.now().toEpochMilli();
         response.setEpoch(epoch);
         return response;
     }
