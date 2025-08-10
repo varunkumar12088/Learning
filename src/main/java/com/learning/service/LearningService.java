@@ -30,6 +30,7 @@ public class LearningService {
         response.setInstance(getInstanceDetails());
         long epoch = Instant.now().toEpochMilli();
         response.setEpoch(epoch);
+        updateHostName(response);
         return response;
     }
 
