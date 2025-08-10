@@ -28,6 +28,8 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	// https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-core
 	implementation("com.amazonaws:aws-java-sdk-core:1.12.788")
+	// https://mvnrepository.com/artifact/software.amazon.awssdk/imds
+	implementation("software.amazon.awssdk:imds:2.20.11")
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

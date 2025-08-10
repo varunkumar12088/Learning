@@ -5,6 +5,7 @@ import com.learning.domain.Request;
 import com.learning.domain.Response;
 import org.springframework.stereotype.Service;
 
+import java.net.InetAddress;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,5 +46,18 @@ public class LearningService {
         instance.put("privateIp", privateIp);
         instance.put("availabilityZone", availabilityZone);
         return instance;
+    }
+
+    private void updateHostName(Response response){
+        try {
+            Map<String, String> instance = response.getInstance();
+            if(instance == null){
+                instance = new HashMap<>();
+            }
+            String host = InetAddress.getLocalHost().getHostName();
+            instance.put("hostName", host);
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
 }
