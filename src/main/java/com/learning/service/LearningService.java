@@ -36,13 +36,9 @@ public class LearningService {
 
     private Map<String, String> getInstanceDetails(){
         Map<String, String> instance = new HashMap<>();
-
         String instanceId = EC2MetadataUtils.getInstanceId();
-
         String privateIp = EC2MetadataUtils.getInstanceInfo().getPrivateIp();
-
         String availabilityZone = EC2MetadataUtils.getInstanceInfo().getAvailabilityZone();
-
         instance.put("instanceId", instanceId);
         instance.put("privateIp", privateIp);
         instance.put("availabilityZone", availabilityZone);
@@ -58,7 +54,7 @@ public class LearningService {
             String host = InetAddress.getLocalHost().getHostName();
             instance.put("hostName", host);
         } catch (Exception ex){
-            System.out.println(ex.getMessage());
+            System.err.println(ex.getMessage());
         }
     }
 }
