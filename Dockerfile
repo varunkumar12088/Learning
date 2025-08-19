@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM varunkumar12aug/openjdk:v17
 
 WORKDIR /app
 
