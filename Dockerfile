@@ -1,9 +1,16 @@
-FROM varunkumar12aug/openjdk:v17
+FROM varunkumar12aug/gradle:8.14.3-jdk17 AS builder
 
 WORKDIR /app
 
-COPY build/libs/Learning-1.0.0.jar Learning-1.0.0.jar
+COPY . .
+
+RUN gradle clean build -x test --no-daemon --info
+
+
+FROM varunkumar12aug/openjdk:v17 AS runtime
+
+COPY --from=builder /app/build/libs/*.jar /app/app.jar
 
 EXPOSE 9090
 
-ENTRYPOINT ["java", "-jar", "Learning-1.0.0.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
