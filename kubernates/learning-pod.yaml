@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: learning-pod
+spec:
+  containers:
+    - name: learning-app
+      image: varunkumar12aug/learning:v1.1
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 9090
